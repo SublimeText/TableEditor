@@ -780,10 +780,7 @@ class BaseTableParser:
     def columns_match_regex(self, str_cols, regex):
         if len(str_cols) == 0:
             return False
-        for col in str_cols:
-            if not re.match(regex, col):
-                return False
-        return True
+        return all(re.match(regex, col) for col in str_cols)
 
     def parse_text(self, text):
         table = TextTable(self.syntax)
