@@ -74,8 +74,7 @@ class MultiMarkdownAlignColumn(tbase.Column):
         return 5 + self.colspan - 1
 
     def render(self):
-        total_col_len = self.col_len + (self.colspan - 1) + sum([col.col_len for col in self.pseudo_columns])
-        total_col_len = total_col_len - (self.colspan - 1)
+        total_col_len = self.col_len + sum([col.col_len for col in self.pseudo_columns])
 
         if self._align_follow == tbase.Column.ALIGN_CENTER:
             lead = ':'
