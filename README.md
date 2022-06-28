@@ -1,18 +1,14 @@
-# This package is no more supported. I moved to vim.
-
-
-
 # Table Editor
 
 ## Overview
 
-*Table Editor* is a package for the *Sublime Text 2* and *Sublime Text 3* 
-editor for edit text tables. 
-*Table Editor* is has almost the same keys as Emacs-org mode table editor. 
+*Table Editor* is a package for the *Sublime Text* editor for editing text
+tables.
+*Table Editor* is has almost the same keys as Emacs-org mode table editor.
 
-*Table Editor* allow on easy way edit text table, it allows:
+*Table Editor* provides an easy way edit text tables, it allows:
 
-- navigate with tab/shift tab 
+- navigate with tab/shift tab
 - insert/delete row
 - insert/delete column
 - auto align number cells to right, text cells to left, header cells to center
@@ -41,7 +37,7 @@ editor for edit text tables.
 
 For first time you should enable table editor with command palette:
 
-* click *ctrl+shift+p*
+* press *ctrl+shift+p*
 * select *Table Editor: Enable for current syntax* or *Table Editor: Enable for current view* or "Table Editor: Set table syntax ... for current view"
 
 Then when *Table Editor* is enabled, type
@@ -55,7 +51,7 @@ Then press *Tab* key, you will get pretty printed table
     |------|-------|
     | _    |       |
 
-Then fill a data and press *Tab* key to navigate to next field or add new row if necessary 
+Then fill a data and press *Tab* key to navigate to next field or add new row if necessary
 
     |    Name   |   Phone   |
     |-----------|-----------|
@@ -67,13 +63,13 @@ For make table a bit faster faster type only
 
     |Name|Phone
 
-And then click *ctrl+k,enter*. 
+And then click *ctrl+k,enter*.
 
     | Name | Phone |
     |------|-------|
     | _    |       |
 
-*Table Editor* support double hline with character '='. Type below 
+*Table Editor* support double hline with character '='. Type below
 
     | Name | Phone |
     |=
@@ -124,7 +120,7 @@ Fill *| Age |* column
     | Alexander |  28_| 987654321 |
     |           |     |           |
 
-Then after some thought you decide switch columns *| Age |* and *| Phone |*. For do this, you can click *alt+right* when 
+Then after some thought you decide switch columns *| Age |* and *| Phone |*. For do this, you can click *alt+right* when
 cursor in the *| Age |* column or you can click *alt+left* when cursor position in the *| Phone |* column
 
     |    Name   |   Phone   | Age |
@@ -161,7 +157,7 @@ For insert row bellow current cursor position click *alt+shift+down*
     | Alexander | 987654321 | 28  |
     |           |           |     |
 
-For delete row click *alt_shift+up*
+For delete row click *alt+shift+up*
 
     |    Name   |   Phone   | Age |
     |-----------|-----------|-----|
@@ -169,7 +165,7 @@ For delete row click *alt_shift+up*
     | Alexander | 987654321 | 28  |
     |           |           |     |
 
-Some time you cell value became to long as in next example column *| Position |*
+Some time you cell value became too long as in next example column *| Position |*
 
     |    Name   |   Phone   | Age |             Position             |
     |-----------|-----------|-----|----------------------------------|
@@ -246,8 +242,8 @@ Select some text with CSV data
 
 ### Temporary Enable/Disable *Table Editor* for current view
 
-Some time you like temporary enable table editor and then disable it. It is useful if you edit *Python* or *Java* code and like to pretty print table, then continue edit your code.
-For do this you should:
+Some times you might like to temporarily enable table editor and then disable it. It is useful if you edit *Python* or *Java* code and want to pretty print a table, then continue editing your code as normal.
+To do this you should:
 
 * Click *ctrl+shift+p* for show command palette
 * Select *Table Editor: Enable for current view*
@@ -294,7 +290,7 @@ Table editor support next table syntax:
 
 **Pandoc Pipe tables**
 
-Pandoc Pipe tables is the same as Multi Markdown, you have to switch into 
+Pandoc Pipe tables is the same as Multi Markdown, you have to switch into
 Multi Markdown if you use this table style.
 
 **Multi Markdown/Pandoc Pipe tables**
@@ -348,7 +344,7 @@ Colspan(alpha status):
 
     |\2. spans two cols   |
     | col 1    | col 2    |
-   
+
 Rowspan(alpha status):
 
     |/3. spans 3 rows | a |
@@ -362,7 +358,7 @@ Compound Textile table cell specifiers:
     |_<. col 1 |_>. col 2 |
 
 
-Note: Formatting and work with textile tables with colspan and rowspan has alpha status. 
+Note: Formatting and work with textile tables with colspan and rowspan has alpha status.
 
 
 
@@ -382,9 +378,9 @@ Above commands automatically enable table editor for current view.
 
 ### CJK support
 
-Table Editor supports CJK languages. If you use CJK language you have to set 
+Table Editor supports CJK languages. If you use CJK language you have to set
 monospaced fonts which supports CJK characters. For example next fonts work
-on my windows computer 
+on my windows computer
 
 - NSimSun
 - FangSong
@@ -405,9 +401,9 @@ on my windows computer
 
 Size of CJK glyph in monospaced font equals 2 normal characters.
 
-### Demo 
+### Demo
 
-Press *ctrl+shift+p* to launch command palette and select *Table Editor: Show demo film in new scratch view*. It is integration test and demo at the same time. 
+Press *ctrl+shift+p* to launch command palette and select *Table Editor: Show demo film in new scratch view*. It is integration test and demo at the same time.
 
 
 ## Installation
@@ -415,7 +411,7 @@ Press *ctrl+shift+p* to launch command palette and select *Table Editor: Show de
 
 ### Using Sublime Package Control
 
-It is preferred and simplest way for most users. 
+It is preferred and simplest way for most users.
 
 - Install Package Control http://wbond.net/sublime_packages/package_control
 - Open Package Control
@@ -426,12 +422,12 @@ It is preferred and simplest way for most users.
 
 If you like work with HEAD you can locate *Table Editor* in your packages directory.
 
-- Go to your Packages directory, you can locate to your Packages directory by using the menu item 
+- Go to your Packages directory, you can locate to your Packages directory by using the menu item
   *Preferences -> Browse Packages...*
-- Inside the Packages directory, clone the SublimeTableEditor repository using the command below: 
+- Inside the Packages directory, clone the SublimeTableEditor repository using the command below:
 
   *git clone https://github.com/vkocubinsky/SublimeTableEditor.git "Table Editor"*
-  
+
 
 ### Download Manually
 
@@ -441,9 +437,9 @@ If you like work with HEAD you can locate *Table Editor* in your packages direct
 
 ## Settings
 
-You can customize *Table Editor* by change settings. For do this you have to modify settings file (see http://docs.sublimetext.info/en/latest/customization/settings.html).
+You can customize *Table Editor* by changing settings in the settings file (see http://docs.sublimetext.info/en/latest/customization/settings.html).
 
-For apply changes for all files you can open user settings with menu "Preferences -> Settings - User". For apply changes for specific syntax you can open syntax settings with menu "Preferences -> Settings - More -> Syntax Specific - User". 
+For apply changes for all files you can open user settings with menu "Preferences -> Settings - User". For apply changes for specific syntax you can open syntax settings with menu "Preferences -> Settings - More -> Syntax Specific - User".
 
 ### Enable Table Editor
 
@@ -456,8 +452,8 @@ By default *Table Editor* is disabled. For enable *Table Editor* you have to set
 ```
 
 Usually you will enable *Table Editor* for specific syntax.
-You can do this very easy if launch command palette by *ctrl+shift+p* and select 
-*Table Editor: Enable for current syntax*. 
+You can do this very easy if launch command palette by *ctrl+shift+p* and select
+*Table Editor: Enable for current syntax*.
 
 
 ### Set Table Syntax
@@ -487,7 +483,7 @@ You can override table border style for Simple Syntax. Table editor supports nex
 
 * simple: *|---|---|*
 * emacs: org mode *|---+---|*
-* grid: *+---+---+* 
+* grid: *+---+---+*
 
 ```javascript
 {
@@ -499,7 +495,7 @@ You can override table border style for Simple Syntax. Table editor supports nex
 
 ### Override custom column alignment for Simple Syntax
 
-This settings by default is enabled, but you can disable  it 
+This settings by default is enabled, but you can disable  it
 
 ```javascript
 {
@@ -508,9 +504,9 @@ This settings by default is enabled, but you can disable  it
 }
 ```
 
-With this feature you can explicit set justification with format characters 
+With this feature you can explicit set justification with format characters
 
-* '<' - left 
+* '<' - left
 * '>' - right
 * '#' - center
 
@@ -527,7 +523,7 @@ as in next example
 
 ### Auto align number column to right
 
-By default a number column aligns to right, if you do not like this you can disable it 
+By default a number column aligns to right, if you do not like this you can disable it
 
 
 ```javascript
@@ -545,7 +541,7 @@ Also you can temporary switch this setting with command palette:
 
 ### Detect header column to center
 
-By default a header column aligns to center, if you do not like this you can disable it 
+By default a header column aligns to center, if you do not like this you can disable it
 
 ```javascript
 {
@@ -588,8 +584,8 @@ Also you can temporary switch this setting with command palette:
 
 ### Intelligent Formating
 
-Intelligent Formatting is an configuration option for table editor. 
-Currently this option have effect only for textiles and multimarkdown tables. 
+Intelligent Formatting is an configuration option for table editor.
+Currently this option have effect only for textiles and multimarkdown tables.
 It is true by default for textile syntax. You can disable it if you want
 ```json
 {
@@ -612,7 +608,7 @@ after click tab table editor will format table as
     |_. Attribute Name |_. Required |_. Value Type |
     |\3. All Events                                |
 
-Probably it is expected result and this result of Table Editor with 
+Probably it is expected result and this result of Table Editor with
 "table_editor_intelligent_formatting":true.
 
 But probably you expected
@@ -620,7 +616,7 @@ But probably you expected
     |_. Attribute Name |_. Required |_. Value Type |   |   |
     |\3. All Events                                |   |   |
 
-and this result of Table Editor with 
+and this result of Table Editor with
 "table_editor_intelligent_formatting":false.
 
 ## Keybinding
@@ -631,7 +627,7 @@ and this result of Table Editor with
 
 **tab**
 
-        Re-align the table, move to the next field. Creates a new row if necessary. 
+        Re-align the table, move to the next field. Creates a new row if necessary.
 
 **shift+tab**
 
@@ -664,7 +660,7 @@ and this result of Table Editor with
 
 **alt+shift+down**
 
-        Insert a new row above the current row. 
+        Insert a new row above the current row.
 
 **alt+up**
 
@@ -676,18 +672,18 @@ and this result of Table Editor with
 
 **ctrl+k, -**
 
-        Insert single horizontal line below current row. 
+        Insert single horizontal line below current row.
         Doesn't make sense and doesn't supported for Textile syntax
 
 **ctrl+k, =**
 
-        Insert double horizontal line below current row. 
+        Insert double horizontal line below current row.
         Doesn't make sense and doesn't supported for Textile syntaxes
 
 
 **ctrl+k, enter**
 
-        Insert a horizontal line below current row, and move the cursor into the row below that line. 
+        Insert a horizontal line below current row, and move the cursor into the row below that line.
         Doesn't make sense and doesn't supported for Textile syntaxes
 
 
@@ -696,14 +692,14 @@ and this result of Table Editor with
         Convert selected CSV region into table
 
 **alt+enter**
-    
+
         Split rest of cell down from current cursor position,
         insert new line bellow if current row is last row in the table or if next line is hline
 
  **ctrl+j**
-        
+
         Join current row and next row into one if next row is not hline
- 
+
 
 ## License
 

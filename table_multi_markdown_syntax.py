@@ -46,13 +46,13 @@ class MultiMarkdownTableSyntax(tbase.TableSyntax):
     def __init__(self, table_configuration):
         tbase.TableSyntax.__init__(self, "Multi Markdown", table_configuration)
 
-        self.line_parser = tparser.LineParserPlus("(?:(?:\|\|+)|(?:\|))")
+        self.line_parser = tparser.LineParserPlus(r"(?:(?:\|\|+)|(?:\|))")
         self.table_parser = MultiMarkdownTableParser(self)
         self.table_driver = MultiMarkdownTableDriver(self)
 
 
 class MultiMarkdownAlignColumn(tbase.Column):
-    PATTERN = r"^\s*([\:]?[\-]+[\:]?)\s*$"
+    PATTERN = r"^\s*([:]?[-]+[:]?)\s*$"
 
     def __init__(self, row, data):
         tbase.Column.__init__(self, row)
@@ -67,7 +67,7 @@ class MultiMarkdownAlignColumn(tbase.Column):
             self._align_follow = None
 
     def min_len(self):
-        return int(math.ceil(self.total_min_len()/self.colspan))
+        return int(math.ceil(self.total_min_len() / self.colspan))
 
     def total_min_len(self):
         # ' :-: ' or ' :-- ' or ' --: ' or ' --- '
@@ -78,13 +78,19 @@ class MultiMarkdownAlignColumn(tbase.Column):
         total_col_len = total_col_len - (self.colspan - 1)
 
         if self._align_follow == tbase.Column.ALIGN_CENTER:
-            return ' :' + '-' * (total_col_len - 4) + ': '
+            lead = ':'
+            trail = ':'
         elif self._align_follow == tbase.Column.ALIGN_LEFT:
-            return ' :' + '-' * (total_col_len - 4) + '- '
+            lead = ':'
+            trail = '-'
         elif self._align_follow == tbase.Column.ALIGN_RIGHT:
-            return ' -' + '-' * (total_col_len - 4) + ': '
+            lead = '-'
+            trail = ':'
         else:
-            return ' -' + '-' * (total_col_len - 4) + '- '
+            lead = '-'
+            trail = '-'
+
+        return ' ' + lead + '-' * (total_col_len - 4) + trail + ' '
 
     def align_follow(self):
         return self._align_follow
