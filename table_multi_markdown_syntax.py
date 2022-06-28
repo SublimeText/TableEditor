@@ -95,10 +95,6 @@ class MultiMarkdownAlignColumn(tbase.Column):
     def align_follow(self):
         return self._align_follow
 
-    @staticmethod
-    def match_cell(str_col):
-        return re.match(MultiMarkdownAlignColumn.PATTERN, str_col)
-
 
 class MultiMarkdownAlignRow(tbase.Row):
 
@@ -121,12 +117,7 @@ class MultiMarkdownAlignRow(tbase.Row):
 class MultiMarkdownTableParser(tbase.BaseTableParser):
 
     def _is_multi_markdown_align_row(self, str_cols):
-        if len(str_cols) == 0:
-            return False
-        for col in str_cols:
-            if not MultiMarkdownAlignColumn.match_cell(col):
-                return False
-        return True
+        return self.columns_match_regex(str_cols, MultiMarkdownAlignColumn.PATTERN)
 
     def create_row(self, table, line):
         if self._is_multi_markdown_align_row(line.str_cols()):
