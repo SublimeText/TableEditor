@@ -80,10 +80,6 @@ class CustomAlignColumn(tbase.Column):
     def render(self):
         return ' ' + self.align_char * (self.col_len - 2) + ' '
 
-    @staticmethod
-    def match_cell(str_col):
-        return re.match(CustomAlignColumn.PATTERN, str_col)
-
 
 class CustomAlignRow(tbase.Row):
 
@@ -100,12 +96,7 @@ class CustomAlignRow(tbase.Row):
 class SimpleTableParser(tborder.BorderTableParser):
 
     def _is_custom_align_row(self, str_cols):
-        if len(str_cols) == 0:
-            return False
-        for col in str_cols:
-            if not CustomAlignColumn.match_cell(col):
-                return False
-        return True
+        return self.columns_match_regex(str_cols, CustomAlignColumn.PATTERN)
 
     def create_row(self, table, line):
         if (self.syntax.custom_column_alignment and

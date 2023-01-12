@@ -106,25 +106,16 @@ class BorderTableDriver(tbase.TableDriver):
 class BorderTableParser(tbase.BaseTableParser):
 
     def _is_single_row_separator(self, str_cols):
-        if len(str_cols) == 0:
-            return False
-        for col in str_cols:
-            if not re.match(r"^\s*[\-]+\s*$", col):
-                return False
-        return True
+        return self.columns_match_regex(str_cols, r"^\s*[-]+\s*$")
 
     def _is_double_row_separator(self, str_cols):
-        if len(str_cols) == 0:
-            return False
-        for col in str_cols:
-            if not re.match(r"^\s*[\=]+\s*$", col):
-                return False
-        return True
+        return self.columns_match_regex(str_cols, r"^\s*[=]+\s*$")
 
     def create_row(self, table, line):
-        if self._is_single_row_separator(line.str_cols()):
+        str_cols = line.str_cols()
+        if self._is_single_row_separator(str_cols):
             row = SeparatorRow(table, '-')
-        elif self._is_double_row_separator(line.str_cols()):
+        elif self._is_double_row_separator(str_cols):
             row = SeparatorRow(table, '=')
         else:
             row = self.create_data_row(table, line)

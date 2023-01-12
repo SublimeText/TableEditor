@@ -50,19 +50,20 @@ class TextileTableSyntax(tbase.TableSyntax):
 
 
 class TextileCellColumn(tbase.Column):
-    PATTERN = (
-        r"\s*("
+    PATTERN = r"""(?x)
+        \s*(
         # Sequence of one or more table cell terms
-        r"(?:"
+        (?:
             # Single character modifiers
-            r"[_<>=~^:-]|"
+            [_<>=~^:-]|
             # Row and col spans
-            r"(?:[/\\]\d+)|"
+            (?:[/\\]\d+)|
             # Styling and classes
-            r"(?:\{.*?\})|(?:\(.*?\))"
-        r")+"
+            (?:\{.*?\})|(?:\(.*?\))
+        )+
         # Terminated by a period
-        r"\.)\s+(.*)$")
+        \.)\s+(.*)$
+    """
     COLSPAN_PATTERN = r"\\(\d+)"
     ROWSPAN_PATTERN = r"/(\d+)"
 
@@ -81,7 +82,7 @@ class TextileCellColumn(tbase.Column):
             self.rowspan = int(rowspan_mo.group(1))
 
     def min_len(self):
-        return int(math.ceil(self.total_min_len()/self.colspan))
+        return int(math.ceil(self.total_min_len() / self.colspan))
 
     def total_min_len(self):
         # '<. data '
