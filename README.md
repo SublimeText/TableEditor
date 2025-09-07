@@ -1,5 +1,12 @@
 # Table Editor
 
+> [!WARNING]
+> This package is in low-maintenance mode.
+> [Its original author has abandoned it][origin]
+> and there is currently no dedicated maintainer for this fork.
+
+[origin]: https://github.com/vkocubinsky/SublimeTableEditor
+
 ## Overview
 
 *Table Editor* is a package for the *Sublime Text* editor for editing text
